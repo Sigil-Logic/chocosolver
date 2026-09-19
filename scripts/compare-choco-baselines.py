@@ -21,9 +21,10 @@ directory — is accounted for.  Per model it reports:
   - instance-SET equality (canonical text when stored on both sides, else the
     recorded SHA-256; a hash missing on either side is a failure)
   - enumeration-order drift (same set, different raw sequence) — informational
-  - artifact parity: the presence of each optional artifact must agree, and
-    the failed-assertion set, unsat-core text, and compile/unsat exit codes
-    must be equal when present
+  - artifact parity, whenever either side has a model directory (compile-error
+    rows keep their compiler artifacts): the presence of each optional
+    artifact must agree, and the failed-assertion set, unsat-core text, and
+    compile/unsat exit codes must be equal when present
 Exit status: 0 when every model is outcome-equal and set-equal (order drift is
 allowed and reported), 1 otherwise, 2 on usage errors.  The table is the input
 for the documented re-baselining rationale of the migration stages; it makes
@@ -90,8 +91,19 @@ def main() -> int:
         problems = []
 
         ran_o, ran_n = ro["mode"] in RAN_MODES, rn["mode"] in RAN_MODES
+        do, dn = old_root / key[0] / key[1], new_root / key[0] / key[1]
+        # Artifact parity applies whenever either side has a model directory: compile-error
+        # rows keep model.cfr, compile.txt, and compile-exit.txt although they never ran.
+        if do.is_dir() != dn.is_dir():
+            problems.append(f"model directory only in {'old' if do.is_dir() else 'new'}")
+        elif do.is_dir():
+            for extra in OPTIONAL:
+                po, pn = (do / extra).exists(), (dn / extra).exists()
+                if po != pn:
+                    problems.append(f"{extra} {'only in old' if po else 'only in new'}")
+                elif po and read(do / extra) != read(dn / extra):
+                    problems.append(f"{extra} differs")
         if ran_o and ran_n:
-            do, dn = old_root / key[0] / key[1], new_root / key[0] / key[1]
             for d, side in ((do, "old"), (dn, "new")):
                 if not d.is_dir() or not (d / "exit.txt").is_file() or not (d / "canon.summary.txt").is_file():
                     problems.append(f"{side}: missing per-model artifacts")
@@ -111,14 +123,9 @@ def main() -> int:
             cnt_o, cnt_n = so.get("unique", "-"), sn.get("unique", "-")
             if cnt_o != ro["unique"] or cnt_n != rn["unique"]:
                 problems.append("summary/canon count mismatch")
-            for extra in OPTIONAL:
-                po, pn = (do / extra).exists(), (dn / extra).exists()
-                if po != pn:
-                    problems.append(f"{extra} {'only in old' if po else 'only in new'}")
-                elif po and read(do / extra) != read(dn / extra):
-                    problems.append(f"{extra} differs")
         else:
-            # Rows without a run (excluded, skipped, compile-error): the summary is the evidence.
+            # Rows without a run (excluded, skipped, compile-error): the summary row plus any
+            # compiler artifacts compared above are the evidence.
             set_equal = ro["canon-sha256"] == rn["canon-sha256"] and ro["unique"] == rn["unique"]
             order_equal = True
             cnt_o, cnt_n = ro["unique"], rn["unique"]

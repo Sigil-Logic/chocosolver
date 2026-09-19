@@ -46,7 +46,9 @@
 #
 # Model-level outcomes — exit 0, or exit 1 with an error recorded on
 # stdout/stderr (JavaScript evaluation errors, solver exceptions), and compile
-# errors — are evidence and are recorded, not failed on.  Harness-level failures
+# errors (compiler exit 1 with an error message) — are evidence and are
+# recorded, not failed on.  The compiler runs under the same TIMEOUT and
+# status policy as the solver and the unsat-core REPL.  Harness-level failures
 # — any other exit status (timeout, invocation failure, signal), an exit 1
 # without error text, an unsat-core REPL run that neither succeeds nor records
 # an exception, a model reaching CAP, a malformed dump — fail the capture so structurally-present-but-invalid
@@ -159,14 +161,21 @@ for f in "${models[@]}"; do
       row "$class" "$base" skipped declared - - - - - "no clafer compiler (set CLAFER)"
       continue
     fi
+    # The compiler runs under the same boundary as the solver: exit 0 with a model.js is a
+    # compiled input; exit 1 with an error message in compile.txt is the model-level
+    # compile-error outcome; anything else (timeout, signal, silent failure, exit 0 without
+    # output) is a harness-level failure.
     crc=0
-    ( cd "$work" && "$CLAFER" -k -m choco model.cfr > compile.txt 2>&1 ) || crc=$?
+    ( cd "$work" && timeout "$TIMEOUT" "$CLAFER" -k -m choco model.cfr > compile.txt 2>&1 ) || crc=$?
     echo "$crc" > "$work/compile-exit.txt"
-    if [ "$crc" -ne 0 ] || [ ! -s "$work/model.js" ]; then
-      row "$class" "$base" compile-error declared - "$crc" - - - "clafer -k -m choco exit $crc: $(grep -m1 -o 'Compile error.*\|Name resolver.*\|Cannot .*' "$work/compile.txt" | head -1 | cut -c1-100)"
+    if [ "$crc" -eq 0 ] && [ -s "$work/model.js" ]; then
+      note="compiled from model.cfr"
+    elif [ "$crc" -eq 1 ] && grep -qi 'error' "$work/compile.txt"; then
+      row "$class" "$base" compile-error declared - "$crc" - - - "clafer -k -m choco exit $crc: $({ grep -m1 -o 'Compile error.*\|Name resolver.*\|Cannot .*\|[Ee]rror.*' "$work/compile.txt" || true; } | head -1 | cut -c1-100)"
       continue
+    else
+      fail "$class/$base" "compiler exit $crc (timeout, invocation failure, signal, exit 0 without model.js, or no error text)"
     fi
-    note="compiled from model.cfr"
   else
     cp "$f" "$work/model.js"
   fi

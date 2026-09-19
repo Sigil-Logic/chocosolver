@@ -7,8 +7,11 @@ Usage: publish-choco4-baseline.py <capture-dir> <evidence-dir>
 Publish mode validates the capture before copying anything: summary.tsv must
 carry at least one model row; every row whose mode ran (instantiate, validate,
 unsat) must have its <class>/<model>/ directory with exit.txt and
-canon.summary.txt; every entry of manifest.sha256 must exist and hash as
-recorded; and the two directories must not nest.  It then copies
+canon.summary.txt; manifest.sha256 must list exactly the capture's files
+(summary.tsv plus every per-model file; environment.txt and the manifest
+itself are the only exclusions), each as a plain capture-relative path
+without duplicates, existing and hashing as recorded; and the two
+directories must not nest.  It then copies
 environment.txt, summary.tsv, and manifest.sha256 into <evidence-dir> and packs
 every per-model directory into <evidence-dir>/baseline.tar.gz deterministically
 (sorted entries, zeroed mtimes and ownership, gzip without a timestamp), so
@@ -59,19 +62,33 @@ def validate(src: Path) -> str | None:
             for req in ("exit.txt", "canon.summary.txt"):
                 if not (d / req).is_file():
                     return f"{r['class']}/{r['model']}: {req} missing for a model that ran"
-    entries = 0
+    listed: set[str] = set()
     for line in (src / "manifest.sha256").read_text().splitlines():
         if not line.strip():
             continue
         digest, _, rel = line.partition("  ")
+        if not rel.startswith("./") or ".." in Path(rel).parts or Path(rel).is_absolute():
+            return f"manifest entry {rel!r} is not a plain capture-relative path"
+        if rel in listed:
+            return f"manifest entry {rel} is listed twice"
         target = src / rel
         if not target.is_file():
             return f"manifest entry {rel} is missing from the capture"
         if sha256(target) != digest:
             return f"manifest entry {rel} does not hash as recorded"
-        entries += 1
-    if entries == 0:
+        listed.add(rel)
+    if not listed:
         return "manifest.sha256 is empty"
+    # The manifest must cover exactly the capture: summary.tsv plus every per-model file
+    # (environment.txt and the manifest itself are the documented exclusions).
+    expected = {
+        "./" + p.relative_to(src).as_posix()
+        for p in src.rglob("*")
+        if p.is_file() and p.name not in ("environment.txt", "manifest.sha256")
+    }
+    unlisted = sorted(expected - listed)
+    if unlisted:
+        return f"{len(unlisted)} capture file(s) not listed in manifest.sha256, e.g. {unlisted[0]}"
     return None
 
 
