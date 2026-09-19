@@ -24,3 +24,5 @@ snapshotInstall:
 
 baseline:
 	bash scripts/capture-choco4-baseline.sh baseline-out
+
+.PHONY: all javadoc jacoco clean install snapshotInstall baseline

@@ -38,15 +38,12 @@ TOP_LEVEL = ("environment.txt", "summary.tsv", "manifest.sha256")
 RAN_MODES = {"instantiate", "validate", "unsat"}
 SEAL = "evidence.sha256"
 
-
 def sha256(p: Path) -> str:
     return hashlib.sha256(p.read_bytes()).hexdigest()
-
 
 def fail(msg: str) -> int:
     print(f"error: {msg}", file=sys.stderr)
     return 2
-
 
 def validate(src: Path) -> str | None:
     for name in TOP_LEVEL:
@@ -94,7 +91,6 @@ def validate(src: Path) -> str | None:
         return f"manifest.sha256 lists {len(unexpected)} path(s) outside the capture set, e.g. {unexpected[0]}"
     return None
 
-
 def publish(src: Path, dst: Path) -> int:
     if not src.is_dir():
         return fail(f"{src} is not a directory")
@@ -127,7 +123,6 @@ def publish(src: Path, dst: Path) -> int:
     print(f"{out}: {len(files)} files, sha256 {sha256(out)}")
     return 0
 
-
 def seal(dst: Path) -> int:
     if not dst.is_dir() or not (dst / "manifest.sha256").is_file():
         return fail(f"{dst} is not a published evidence directory")
@@ -137,7 +132,6 @@ def seal(dst: Path) -> int:
     print(f"{dst / SEAL}: {len(lines)} files sealed")
     return 0
 
-
 def main() -> int:
     if len(sys.argv) == 3 and sys.argv[1] == "--seal":
         return seal(Path(sys.argv[2]))
@@ -145,7 +139,6 @@ def main() -> int:
         return publish(Path(sys.argv[1]), Path(sys.argv[2]))
     print(__doc__, file=sys.stderr)
     return 2
-
 
 if __name__ == "__main__":
     sys.exit(main())

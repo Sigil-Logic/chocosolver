@@ -30,7 +30,6 @@ from pathlib import Path
 BEGIN = re.compile(r"^=== (Instance|Counterexample) (\d+) Begin ===$")
 END = re.compile(r"^--- (Instance|Counterexample) (\d+) End ---$")
 
-
 def split_blocks(text: str) -> list[tuple[str, list[str]]]:
     """Split a dump into (kind, lines) blocks.
 
@@ -68,7 +67,6 @@ def split_blocks(text: str) -> list[tuple[str, list[str]]]:
         raise ValueError("unterminated instance block (truncated dump?)")
     return blocks
 
-
 def parse_tree(lines: list[str]) -> list[tuple[str, list]]:
     root: list = []
     stack: list[tuple[int, list]] = [(-1, root)]
@@ -86,16 +84,13 @@ def parse_tree(lines: list[str]) -> list[tuple[str, list]]:
         stack.append((depth, node[1]))
     return root
 
-
 def canon(node: tuple[str, list]) -> str:
     text, children = node
     sub = sorted(canon(c) for c in children)
     return "\n".join([text] + ["  " + l for s in sub for l in s.split("\n")])
 
-
 def canon_instance(lines: list[str]) -> str:
     return "\n".join(sorted(canon(n) for n in parse_tree(lines)))
-
 
 def main() -> int:
     if len(sys.argv) != 3:
@@ -120,7 +115,6 @@ def main() -> int:
         f"kind={kind.lower()} raw={len(insts)} unique={len(unique)} sha256={digest}\n"
     )
     return 0
-
 
 if __name__ == "__main__":
     sys.exit(main())

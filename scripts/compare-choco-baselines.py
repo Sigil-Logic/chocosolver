@@ -37,10 +37,8 @@ from pathlib import Path
 RAN_MODES = {"instantiate", "validate", "unsat"}
 OPTIONAL = ("assertions.canon.txt", "unsat.txt", "unsat-exit.txt", "compile.txt", "compile-exit.txt")
 
-
 def read(p: Path) -> str:
     return p.read_text() if p.exists() else ""
-
 
 def summary(d: Path) -> dict:
     out = {}
@@ -49,7 +47,6 @@ def summary(d: Path) -> dict:
         out[k] = v
     return out
 
-
 def load(root: Path) -> dict[tuple[str, str], dict]:
     path = root / "summary.tsv"
     if not path.is_file():
@@ -57,7 +54,6 @@ def load(root: Path) -> dict[tuple[str, str], dict]:
     with open(path, newline="") as fh:
         rows = list(csv.DictReader(fh, delimiter="\t"))
     return {(r["class"], r["model"]): r for r in rows}
-
 
 def main() -> int:
     if len(sys.argv) != 3:
@@ -142,7 +138,6 @@ def main() -> int:
             failures += 1
     print(f"\n{len(keys)} models, {failures} parity failure(s), {drift} with enumeration-order drift only")
     return 1 if failures else 0
-
 
 if __name__ == "__main__":
     sys.exit(main())
