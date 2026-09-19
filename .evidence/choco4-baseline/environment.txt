@@ -1,16 +1,23 @@
-date-utc: 2026-09-19T03:37:30Z
+date-utc: 2026-09-19T04:12:33Z
 chocosolver: chocosolver v0.4.4.2016-09-19
 jar: target/chocosolver-0.4.4-jar-with-dependencies.jar
 jar-sha256: 60a9a4f4540cf4982ffe03440dafdbf36b1899a6a4401d8a4ab769b4872a6fc9
-chocosolver-commit: bc4cb12a23118d9e5d7f1003d83f2f8bed9cf179
+chocosolver-commit: 85f624260446579799d16fc5ad9d59b83db0a4e6
+chocosolver-tree: clean
+harness-sha256: 8254d596db330660d7fef7baa512ab242db3dcace3d14ed9632175f484966b3a  scripts/capture-choco4-baseline.sh
+harness-sha256: dfe9e595695757c4a6ae3c4e5a1fc88347e1f2b27482a4e7a65422be3867782e  scripts/canonicalize-choco-instances.py
+harness-sha256: 281f888f1ce1b05a8a5def3895d7851cdc0446b017aa194a65f22ed24274de1a  scripts/compare-choco-baselines.py
+harness-sha256: 36d5c3ec815a477378757e5c037bf3f06f1c552711e4dacc1cc532a48e0e21b3  scripts/publish-choco4-baseline.py
 java: openjdk version "21.0.2" 2024-01-16
 maven: Apache Maven 3.9.16 (2bdd9fddda4b155ebf8000e807eb73fd829a51d5)
 arch: arm64  os: Darwin
 clafer: Clafer 0.5.1  (/tmp/clafer-master/clafer)
 clafer-commit: cefa7aa35f3b32c1811b2283fe715ed32081e7ae
+clafer-tree: clean
+clafer-binary-sha256: e31b6077453efba38a7cd32dafec1d44fea67b3841b3016f13b87bd7bd7a3737
 corpus: src/test/resources (112 models)
-reduced-configurations: /Users/frankzeyda/Repositories/Sigil/clafer/chocosolver/.evidence/choco4-baseline/reduced-configurations.tsv
-reduced-models: /Users/frankzeyda/Repositories/Sigil/clafer/chocosolver/.evidence/choco4-baseline/reduced-models
-exclusions: /Users/frankzeyda/Repositories/Sigil/clafer/chocosolver/.evidence/choco4-baseline/exclusions.tsv
+reduced-configurations: .evidence/choco4-baseline/reduced-configurations.tsv
+reduced-models: .evidence/choco4-baseline/reduced-models
+exclusions: .evidence/choco4-baseline/exclusions.tsv
 cap: 300000  timeout: 300s  store-limit: 4000000 bytes
 invocation: java -jar <jar> --file model.js --search PreferSmallerInstances --minint <lo> --maxint <hi> [-n 300000 | -v] --output instances.txt  (timeout 300s per run; unsat: --repl < 'minUnsat, unsatCore, quit')
