@@ -18,8 +18,9 @@ separated by a line containing only `---`.  A summary line goes to
 <out-dir>/canon.summary.txt: kind, raw count, unique count, SHA-256 of the
 canonical file.
 
-Exit status 0 on success; 2 on malformed input (unterminated block, odd
-indentation), so a capture never silently publishes a truncated dump.
+Exit status 0 on success; 2 on malformed input (unterminated block, marker
+kind/number mismatch, stray or nested marker, numbering gap, odd indentation),
+so a capture never silently publishes a truncated or corrupted dump.
 """
 import hashlib
 import re
@@ -31,20 +32,33 @@ END = re.compile(r"^--- (Instance|Counterexample) (\d+) End ---$")
 
 
 def split_blocks(text: str) -> list[tuple[str, list[str]]]:
+    """Split a dump into (kind, lines) blocks.
+
+    Every `=== <Kind> <n> Begin ===` must be closed by the matching
+    `--- <Kind> <n> End ---` (same kind, same number); blocks must be numbered
+    1, 2, 3, ... in order.  Anything else — a nested or stray marker, a
+    mismatched close, a gap in numbering, a missing close — is a malformed dump.
+    """
     blocks: list[tuple[str, list[str]]] = []
     cur: list[str] | None = None
-    kind = ""
+    kind, number = "", 0
     for raw in text.splitlines():
         line = raw.rstrip()
         m = BEGIN.match(line)
         if m:
             if cur is not None:
-                raise ValueError("nested Begin marker")
-            cur, kind = [], m.group(1)
+                raise ValueError(f"nested Begin marker: {line!r}")
+            kind, number = m.group(1), int(m.group(2))
+            if number != len(blocks) + 1:
+                raise ValueError(f"unexpected block number {number} (expected {len(blocks) + 1})")
+            cur = []
             continue
-        if END.match(line):
+        m = END.match(line)
+        if m:
             if cur is None:
-                raise ValueError("End marker without Begin")
+                raise ValueError(f"End marker without Begin: {line!r}")
+            if (m.group(1), int(m.group(2))) != (kind, number):
+                raise ValueError(f"End marker {line!r} does not close '{kind} {number}'")
             blocks.append((kind, cur))
             cur = None
             continue
