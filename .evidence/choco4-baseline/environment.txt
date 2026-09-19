@@ -1,13 +1,13 @@
-date-utc: 2026-09-19T04:12:33Z
+date-utc: 2026-09-19T04:32:21Z
 chocosolver: chocosolver v0.4.4.2016-09-19
 jar: target/chocosolver-0.4.4-jar-with-dependencies.jar
 jar-sha256: 60a9a4f4540cf4982ffe03440dafdbf36b1899a6a4401d8a4ab769b4872a6fc9
-chocosolver-commit: 85f624260446579799d16fc5ad9d59b83db0a4e6
+chocosolver-commit: 5165080955877af91a40d7946c3ae10b6bc44a95
 chocosolver-tree: clean
-harness-sha256: 8254d596db330660d7fef7baa512ab242db3dcace3d14ed9632175f484966b3a  scripts/capture-choco4-baseline.sh
+harness-sha256: b9a4a8a94d2038500fab0c50467d08ac40e6c556ba6d8f2da84b85ce56495afe  scripts/capture-choco4-baseline.sh
 harness-sha256: dfe9e595695757c4a6ae3c4e5a1fc88347e1f2b27482a4e7a65422be3867782e  scripts/canonicalize-choco-instances.py
-harness-sha256: 281f888f1ce1b05a8a5def3895d7851cdc0446b017aa194a65f22ed24274de1a  scripts/compare-choco-baselines.py
-harness-sha256: 36d5c3ec815a477378757e5c037bf3f06f1c552711e4dacc1cc532a48e0e21b3  scripts/publish-choco4-baseline.py
+harness-sha256: dedd35d674ea3acdb56bab38a66fd905bf03df7bf830b112043f4eedfaa046e7  scripts/compare-choco-baselines.py
+harness-sha256: b574de93a1d7fb2f90f8ccaf591415e2304b5344974ca880fe143ab88174a9a7  scripts/publish-choco4-baseline.py
 java: openjdk version "21.0.2" 2024-01-16
 maven: Apache Maven 3.9.16 (2bdd9fddda4b155ebf8000e807eb73fd829a51d5)
 arch: arm64  os: Darwin
