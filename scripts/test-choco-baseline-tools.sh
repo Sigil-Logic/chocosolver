@@ -84,6 +84,9 @@ cp -r "$T/old" "$T/omit"; echo 9 > "$T/omit/solve-positive/alpha/exit.txt"; grep
 cp -r "$T/old" "$T/extra"; echo stray > "$T/extra/solve-positive/alpha/stray.txt";                              check publish-unlisted-file 2 python3 "$PUBLISH" "$T/extra" "$T/pub7"
 cp -r "$T/old" "$T/dup"; head -1 "$T/dup/manifest.sha256" >> "$T/dup/manifest.sha256";                          check publish-duplicate-entry 2 python3 "$PUBLISH" "$T/dup" "$T/pub8"
 cp -r "$T/old" "$T/trav"; sed -i.bak '1s#  \./#  ./../#' "$T/trav/manifest.sha256";                              check publish-traversing-entry 2 python3 "$PUBLISH" "$T/trav" "$T/pub9"
+cp -r "$T/old" "$T/nestenv"; echo x > "$T/nestenv/solve-positive/alpha/environment.txt";                     check publish-unlisted-nested-environment 2 python3 "$PUBLISH" "$T/nestenv" "$T/pub10"
+cp -r "$T/old" "$T/nestman"; echo x > "$T/nestman/solve-positive/alpha/manifest.sha256";                     check publish-unlisted-nested-manifest 2 python3 "$PUBLISH" "$T/nestman" "$T/pub11"
+cp -r "$T/old" "$T/listenv"; ( cd "$T/listenv" && shasum -a 256 ./environment.txt >> manifest.sha256 );       check publish-listed-top-level-environment 2 python3 "$PUBLISH" "$T/listenv" "$T/pub12"
 check publish-seal 0 python3 "$PUBLISH" --seal "$T/pub1"
 ( cd "$T/pub1" && shasum -a 256 -c evidence.sha256 > /dev/null ) && pass=$((pass+1)) || { failn=$((failn+1)); echo "FAIL publish-seal: evidence.sha256 does not verify"; }
 

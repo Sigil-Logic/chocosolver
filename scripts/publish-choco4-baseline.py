@@ -79,16 +79,19 @@ def validate(src: Path) -> str | None:
         listed.add(rel)
     if not listed:
         return "manifest.sha256 is empty"
-    # The manifest must cover exactly the capture: summary.tsv plus every per-model file
-    # (environment.txt and the manifest itself are the documented exclusions).
+    # The manifest must cover exactly the capture: summary.tsv plus every per-model file.
+    # Only the two top-level paths ./environment.txt and ./manifest.sha256 are excluded
+    # (by exact relative path, never by basename, so a nested file of the same name is a
+    # capture file like any other), and the check is bidirectional.
     expected = {
-        "./" + p.relative_to(src).as_posix()
-        for p in src.rglob("*")
-        if p.is_file() and p.name not in ("environment.txt", "manifest.sha256")
-    }
+        "./" + p.relative_to(src).as_posix() for p in src.rglob("*") if p.is_file()
+    } - {"./environment.txt", "./manifest.sha256"}
     unlisted = sorted(expected - listed)
     if unlisted:
         return f"{len(unlisted)} capture file(s) not listed in manifest.sha256, e.g. {unlisted[0]}"
+    unexpected = sorted(listed - expected)
+    if unexpected:
+        return f"manifest.sha256 lists {len(unexpected)} path(s) outside the capture set, e.g. {unexpected[0]}"
     return None
 
 
