@@ -21,3 +21,6 @@ snapshotInstall:
 	mkdir -p $(to)
 	cp -f README.md $(to)/chocosolver-README.md
 	cp -f target/chocosolver-0.4.4-SNAPSHOT-jar-with-dependencies.jar $(to)/chocosolver.jar
+
+baseline:
+	bash scripts/capture-choco4-baseline.sh baseline-out
