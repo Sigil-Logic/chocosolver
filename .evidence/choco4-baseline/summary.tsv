@@ -1,0 +1,113 @@
+class	model	mode	config	flags	exit	raw	unique	canon-sha256	note
+assert-negative	escapes	validate	declared	-v --search PreferSmallerInstances --minint -8 --maxint 7	0	2	2	c9c47b535a55d0d4ed32cae024d3e74531f8f49eacb3bf49bc4f2c0b0f0b56d0	
+assert-positive	age	validate	declared	-v --search PreferSmallerInstances --minint -8 --maxint 7	0	0	0	e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855	
+assert-positive	assertionsAndScopes	validate	declared	-v --search PreferSmallerInstances --minint -8 --maxint 7	0	0	0	e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855	
+assert-positive	groupCardInheritance	validate	declared	-v --search PreferSmallerInstances --minint -8 --maxint 7	0	0	0	e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855	
+assert-positive	groupCardInheritance2	validate	declared	-v --search PreferSmallerInstances --minint -8 --maxint 7	0	0	0	e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855	
+assert-positive	liftingNestedConstraints	validate	declared	-v --search PreferSmallerInstances --minint -8 --maxint 7	0	0	0	e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855	
+assert-positive	nestedInheritanceWithReference	validate	declared	-v --search PreferSmallerInstances --minint -8 --maxint 7	0	0	0	e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855	
+assert-positive	reminder-modulo_division	validate	declared	-v --search PreferSmallerInstances --minint -8 --maxint 7	0	0	0	e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855	
+failing	ClaferTools_ToolingArchitecture	unsat	declared	--search PreferSmallerInstances --minint -8 --maxint 7 -n 300000	0	0	0	e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855	instantiate produced 0 instances; minUnsat/unsatCore captured
+failing	EAST-ADL-PowerWindow	instantiate	declared	--search PreferSmallerInstances --minint -8 --maxint 7 -n 300000	0	0	0	e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855	ReferenceError: "c0_Port" is not defined. 
+failing	i40_integers_strings_assignment	instantiate	declared	--search PreferSmallerInstances --minint -8 --maxint 7 -n 300000	1	0	0	e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855	Exception in thread "main" org.clafer.ast.JoinSetWithStringException
+failing	oclBench_b1	instantiate	declared	--search PreferSmallerInstances --minint -8 --maxint 7 -n 300000	1	0	0	e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855	Exception in thread "main" org.clafer.ast.JoinSetWithStringException
+failing	reals	instantiate	declared	--search PreferSmallerInstances --minint -8 --maxint 7 -n 300000	0	0	0	e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855	ReferenceError: "real" is not defined. 
+failing	gi29-subset-nested-abstracts	instantiate	declared	--search PreferSmallerInstances --minint -8 --maxint 7 -n 300000	0	1	1	fa648cb12eca0e182e072243f8d23be0d040e94a1a75975ef1b647913f5c1684	compiled from model.cfr
+failing	gi30-parent-of-nested-abstract	instantiate	declared	--search PreferSmallerInstances --minint -8 --maxint 7 -n 300000	0	1	1	9122f83d18f7ba46c1b0210cdcbad2dcdaab373e5bf8dd9b3584787043e9f0ca	compiled from model.cfr
+failing	gi31-constraints-not-inherited	instantiate	declared	--search PreferSmallerInstances --minint -8 --maxint 7 -n 300000	0	1	1	f2a4539e9ce15fbfd5f3e8b588decdc71a07d06c3e1b79d3ed66d81adf4de103	compiled from model.cfr
+optimization	ACCDemo_attributedFeatureModels	instantiate	declared	--search PreferSmallerInstances --minint -8 --maxint 7 -n 300000	0	4	4	f34be6df7f3d3531f03f6bb724538714161fd4e69760c08a33b091f14b4da64f	
+optimization	ClaferToolsDemo_Adding_Quality	instantiate	declared	--search PreferSmallerInstances --minint -128 --maxint 128 -n 300000	0	10	10	3632140882b21557c6d836aa60d1d53c12defa29e39acdc8d083cb0d61e88e86	
+optimization	contractorPackaging_large	instantiate	declared	--search PreferSmallerInstances --minint -100 --maxint 100 -n 300000	0	40	40	dab613d9a7fb7d3f468b873b380af476e60f0c49ec0d1437a1594a1aa81f9b49	
+optimization	contractorPackaging_medium	instantiate	declared	--search PreferSmallerInstances --minint -100 --maxint 100 -n 300000	0	5	5	eebd09c07ba7ce8c4ab0d2a9594f5b4d2dede777bee34367db8bdc43ea967e5c	
+optimization	contractorPackaging_small	instantiate	declared	--search PreferSmallerInstances --minint -100 --maxint 100 -n 300000	0	12	12	be5edbaaee63169ab4f7fb86b722cbb599a7e5b80ca43158d505c4e8ff61856f	
+optimization	NECSIS-Workshop_Modeling_Quality_4	instantiate	declared	--search PreferSmallerInstances --minint -8 --maxint 7 -n 300000	0	5	5	3db77e099347240c8277c00167abea0b45505af16fa6b97a2341a8cb094bf026	
+solve-negative	i131-incorrect-scope-diag	unsat	declared	--search PreferSmallerInstances --minint -8 --maxint 7 -n 300000	0	0	0	e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855	instantiate produced 0 instances; minUnsat/unsatCore captured
+solve-positive	AADL_cruise_control_impl_expanded	excluded	declared	-	-	-	-	-	exceeds 300,001 instances at its declared scopes (146 s to the cap)
+solve-positive	AADL_simplified	excluded	declared	-	-	-	-	-	exceeds 300,001 instances at its declared scopes (25.9 s to the cap); scope 1 is insufficient (InsufficientScopeException)
+solve-positive	AADL_with_acc_first_try	excluded	declared	-	-	-	-	-	no termination within 150 s at a 300,001-instance cap
+solve-positive	ACCDemo_featureModels	instantiate	declared	--search PreferSmallerInstances --minint -8 --maxint 7 -n 300000	0	80	80	470f5102187d83ea3526644ec208eb648c3f0281ac93e67eb549cf2967135cfe	
+solve-positive	ACCDemo_fullClafer	instantiate	declared	--search PreferSmallerInstances --minint -8 --maxint 7 -n 300000	0	5	5	c0450c34269100d90065fae894c23f3cdcfd79f14a9fc05710164bca1f44c43a	
+solve-positive	BMM_model	instantiate	declared	--search PreferSmallerInstances --minint -8 --maxint 7 -n 300000	0	1	1	00683796de565e7c42d58dab55b024624ff852b154ea7464800768866040bf1e	
+solve-positive	books_tutorial	excluded	declared	-	-	-	-	-	exceeds 300,001 instances at its declared scopes (1.5 s to the cap); no set-comparable full enumeration
+solve-positive	check_unique_ref_names_with_inheritance	instantiate	declared	--search PreferSmallerInstances --minint -8 --maxint 7 -n 300000	0	1	1	c7a6c4645d38e8b77f2de0e090f5a4f71f0ffee79778b5452cd089f10b086f55	
+solve-positive	ClaferTools_CommandLineArguments	excluded	declared	-	-	-	-	-	exceeds 300,001 instances at its declared scopes (25.7 s to the cap); UNSAT at scope 1
+solve-positive	ClaferToolsDemo_Existing_Android_Phones	instantiate	declared	--search PreferSmallerInstances --minint -8 --maxint 7 -n 300000	0	324	324	0475d5d8ecb0553a87ef9491c864df5c8c0c6f163c43f5ed1d35fa4fa835a69f	
+solve-positive	ClaferToolsDemo_Variant_Derivation	instantiate	declared	--search PreferSmallerInstances --minint -8 --maxint 7 -n 300000	0	2	2	6adb2d871a3137de08ee2801c8d1780e242aeed262776c16d9f04648497dba7b	
+solve-positive	constraints	excluded	declared	-	-	-	-	-	exceeds 300,001 instances at its declared scopes (8.5 s to the cap)
+solve-positive	deployment-example	instantiate	declared	--search PreferSmallerInstances --minint -8 --maxint 7 -n 300000	0	21504	21504	64b6141640e14617ed9695dbc8903ac5686ebb1882ac115dc2f6f5d8eee5d4ca	hash-only: canonical text above STORE_LIMIT (4000000 bytes) dropped after hashing
+solve-positive	eCos_model	instantiate	declared	--search PreferSmallerInstances --minint -8 --maxint 7 -n 300000	0	3	3	955a4aa0b7f7ef11682d617516cebaf13bddc8976036251c34974d7c538f5d37	
+solve-positive	EDM_Intro	excluded	declared	-	-	-	-	-	exceeds 300,001 instances at its declared scopes (19.7 s to the cap)
+solve-positive	EDMPoster_Intro	instantiate	declared	--search PreferSmallerInstances --minint -8 --maxint 7 -n 300000	0	30	30	2b15449834fc7dabd116fc0accc515df4f6f8d846a43a7149bd02771a8c08afe	
+solve-positive	enforcingInverseReferences	excluded	declared	-	-	-	-	-	no termination within 150 s at a 300,001-instance cap
+solve-positive	ESC_FMCSA571.126-model	instantiate	declared	--search PreferSmallerInstances --minint -8 --maxint 7 -n 300000	0	1	1	01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b	
+solve-positive	gi29-subset-nested-abstracts	instantiate	declared	--search PreferSmallerInstances --minint -8 --maxint 7 -n 300000	0	1	1	fa648cb12eca0e182e072243f8d23be0d040e94a1a75975ef1b647913f5c1684	
+solve-positive	gi30-parent-of-nested-abstract	instantiate	declared	--search PreferSmallerInstances --minint -8 --maxint 7 -n 300000	0	1	1	9122f83d18f7ba46c1b0210cdcbad2dcdaab373e5bf8dd9b3584787043e9f0ca	
+solve-positive	gi31-constraints-not-inherited	instantiate	declared	--search PreferSmallerInstances --minint -8 --maxint 7 -n 300000	0	1	1	f2a4539e9ce15fbfd5f3e8b588decdc71a07d06c3e1b79d3ed66d81adf4de103	
+solve-positive	i10	instantiate	declared	--search PreferSmallerInstances --minint -8 --maxint 7 -n 300000	0	8	8	0da323974fce58b59dc74c54de149cfc51a909248ac4e0a78e8d2fd217255362	
+solve-positive	i101	instantiate	declared	--search PreferSmallerInstances --minint -8 --maxint 7 -n 300000	0	3	3	497e9792fea6cd1281e51e9a3c3463606055a498addc0efb8fa1a5caaddbee56	
+solve-positive	i121-comments	instantiate	declared	--search PreferSmallerInstances --minint -8 --maxint 7 -n 300000	0	2	2	6ee71431a66250cc406df18cfb0d61e8cafff12fc270fe97c70a0d64135da811	
+solve-positive	i122-CVL	instantiate	reduced	--search PreferSmallerInstances --minint 0 --maxint 1 -n 300000	0	1176	1176	a09ca510b1a5816e70b5b6f3e28bb9162249737aef5fee805831cd79bac96a64	derived model .evidence/choco4-baseline/reduced-models/solve-positive/i122-CVL.js; reduced configuration: scope-1 derived model (reduced-models/solve-positive/i122-CVL.js: every per-clafer scope and the default scope set to 1) with int range [0, 1]; at its declared scopes the model exceeds 300,001 instances
+solve-positive	i126-empty	instantiate	declared	--search PreferSmallerInstances --minint -8 --maxint 7 -n 300000	0	1	1	01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b	
+solve-positive	i131-incorrect-scope	instantiate	declared	--search PreferSmallerInstances --minint -8 --maxint 7 -n 300000	0	1	1	01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b	
+solve-positive	i137_parsing	instantiate	declared	--search PreferSmallerInstances --minint -8 --maxint 7 -n 300000	0	1	1	01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b	
+solve-positive	i14	instantiate	declared	--search PreferSmallerInstances --minint -8 --maxint 7 -n 300000	0	1	1	35e97c4d2528ff8035fbcc4470f885775bf4827b3c91da1f9a1ae1ea77d695f8	
+solve-positive	i144-if-then-else	instantiate	declared	--search PreferSmallerInstances --minint -8 --maxint 7 -n 300000	0	32	32	71659c0913b6d7f4a8d8e715ed73290a81b420efc2691d76fdad63f1d6c85fbd	
+solve-positive	i147-ref-disambiguation	instantiate	declared	--search PreferSmallerInstances --minint -8 --maxint 7 -n 300000	0	18	18	6cf4d594e8fb6542d47cbf76d4875fed3e95af5fe7eb3350dfeb916ba7094c38	
+solve-positive	i150-or-groups.des	instantiate	declared	--search PreferSmallerInstances --minint -8 --maxint 7 -n 300000	0	1	1	5c70d5bd016ca90086cb447b52fd7bf4e23f5afa6d094c3c1fb7f09e9ce5e4b6	
+solve-positive	i150-or-groups	instantiate	declared	--search PreferSmallerInstances --minint -8 --maxint 7 -n 300000	0	3	3	7e7fd7f8346076a6e11ff05748620557c7e981ccf82db5756fabfab8b104a756	
+solve-positive	i17	instantiate	declared	--search PreferSmallerInstances --minint -8 --maxint 7 -n 300000	0	1	1	01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b	
+solve-positive	i18	instantiate	declared	--search PreferSmallerInstances --minint -8 --maxint 7 -n 300000	0	1	1	a5fe500f6b2d6dff73c4379a7f32b2289533625afbdd20b5a80d05a02e425228	
+solve-positive	i188-sum-quantifier	instantiate	declared	--search PreferSmallerInstances --minint -8 --maxint 7 -n 300000	0	1	1	480107d7605388308a1dc5a5fad312c07d95a78e90b8ffcf80fa61d252dba632	
+solve-positive	i188-sum-quantifier2	instantiate	declared	--search PreferSmallerInstances --minint -8 --maxint 7 -n 300000	0	1	1	4779bf5629e05c433533abe8d92c270fa66986cf18a445c658de50d2c91f8e8e	
+solve-positive	i19	instantiate	declared	--search PreferSmallerInstances --minint -8 --maxint 7 -n 300000	0	1	1	f81ea838e7e2e79b01852c9cf67bb685e28649937b23ac8199e241ca567c84de	
+solve-positive	i199-afm-check	instantiate	declared	--search PreferSmallerInstances --minint -8 --maxint 7 -n 300000	0	4	4	c407400d093e5d7b62f86bcc36cc799e42d967107e4436dee68342ee7d6e8af9	
+solve-positive	i199-afm-with-inhritance	instantiate	declared	--search PreferSmallerInstances --minint -8 --maxint 7 -n 300000	0	1	1	65a116dce7761ccf28e98428d62fc9ac4edc72c429321c2aa3e3ca903431d890	
+solve-positive	i205-ref-disambiguation-II	instantiate	declared	--search PreferSmallerInstances --minint -8 --maxint 7 -n 300000	0	1	1	8c0074a86a58f83ada29c9bd0322bb7fda869448ceca61f39aebdcb96f0690dc	
+solve-positive	i226-unary-minus	instantiate	declared	--search PreferSmallerInstances --minint -8 --maxint 7 -n 300000	0	1	1	bfb3e1bf0e71a9c5e5fe263929156c2ed8b42cf464b885714725d4435d080447	
+solve-positive	i227-implicit-this-in-IR	instantiate	declared	--search PreferSmallerInstances --minint -8 --maxint 7 -n 300000	0	1	1	3ce80d0283d4b1d30bce967e6eb6b393d464451e98bbb8ece85ef2ffb2e2b08e	
+solve-positive	i228-this-and-parent-types	instantiate	declared	--search PreferSmallerInstances --minint -8 --maxint 7 -n 300000	0	2	2	614de65506446bb39062f09efd5f69d004e430f968b77a33f97921d8ba389902	
+solve-positive	i23	instantiate	declared	--search PreferSmallerInstances --minint -8 --maxint 7 -n 300000	0	262144	262144	6a7a97891a6b3621f04477b1613223bce12512f43b935bb93838f2ab128b2dbc	hash-only: canonical text above STORE_LIMIT (4000000 bytes) dropped after hashing
+solve-positive	i239	instantiate	declared	--search PreferSmallerInstances -n 300000	0	1	1	01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b	
+solve-positive	i275-uniqueNames	instantiate	declared	--search PreferSmallerInstances --minint -8 --maxint 7 -n 300000	0	1	1	104b45f6966aa68cde735d0bf89f0335e57a076b980e81e4466643896b38bc76	
+solve-positive	i40-text-equality	instantiate	declared	--search PreferSmallerInstances --minint -8 --maxint 7 -n 300000	0	1	1	78890673d59537716afa8f07e9793bb0322eee593588baad347bd21fad35c315	
+solve-positive	i49_parentReduce	instantiate	declared	--search PreferSmallerInstances --minint -8 --maxint 7 -n 300000	0	1	1	9c224a04d88f592c505a79a9424531b3145bd46c7bde07d6d1e3a3c82eeaac25	
+solve-positive	i49_resolve_ancestor	instantiate	declared	--search PreferSmallerInstances --minint -8 --maxint 7 -n 300000	0	16	16	9551f4305967c9e1cc99625a321dd7858b1eea654649e4d25139d6471d56983d	
+solve-positive	i50_stop_following_references	instantiate	declared	--search PreferSmallerInstances --minint -8 --maxint 7 -n 300000	0	1	1	52edde5304f6b3f813d0137975bfe69acb2cf0ad964066f3d1c21b304d37aa81	
+solve-positive	i55	instantiate	declared	--search PreferSmallerInstances --minint -8 --maxint 7 -n 300000	0	1	1	4bce29337b228109dcc2612db24f171d716c5267e356012af27091ffbf3fe8a4	
+solve-positive	i57-navParent	instantiate	declared	--search PreferSmallerInstances --minint -8 --maxint 7 -n 300000	0	1	1	fcf6dbc3e83fcf773e1de79e830fd7855dea0065bd33e28ad2da564171909c58	
+solve-positive	i61-cardinalities	instantiate	declared	--search PreferSmallerInstances --minint -8 --maxint 7 -n 300000	0	12	12	0a77324e912f2fb3cbc270a41adfe25ad588950ea7924b1ae2e74bac60ee5b7a	
+solve-positive	i70	instantiate	declared	--search PreferSmallerInstances --minint -8 --maxint 7 -n 300000	0	3	3	8adcda323d805e6637dfc96208ccb83bfcb0718a1020ed378569be5bf408cc18	
+solve-positive	i71	excluded	declared	-	-	-	-	-	no termination within 150 s at a 300,001-instance cap
+solve-positive	i72-shared-reference	instantiate	declared	--search PreferSmallerInstances --minint -8 --maxint 7 -n 300000	0	1	1	e8ad1ed0e4112588092a16736cf79601e8bf7c9fff0c96f0967a540f73bb4ccc	
+solve-positive	i78_transitive-closure	instantiate	declared	--search PreferSmallerInstances --minint -8 --maxint 7 -n 300000	0	1	1	2af38c119ca20bf2020da024e95574c75755f1b8ef9580d6aee8d6170b0ade90	
+solve-positive	i83-individual-scope	instantiate	declared	--search PreferSmallerInstances --minint -8 --maxint 7 -n 300000	0	6	6	54e93d660c496f8c9c6e556ce55656c3699bc5c828f9b13511b974274dc70032	
+solve-positive	i84-references-pointing-to-the-same-object	instantiate	declared	--search PreferSmallerInstances --minint -8 --maxint 7 -n 300000	0	8	8	9ab9d5491d22ab49284011751bfe265fc921b58953ae20eab4ec9ffd63bb429e	
+solve-positive	i95-subclafers-not-visible-via-reference-reference	instantiate	declared	--search PreferSmallerInstances --minint -8 --maxint 7 -n 300000	0	3	3	1a9f1a6098c3aaeb488038c1e2205511f7a17b209e1b4c526b8ca4d4046af409	
+solve-positive	i98_top-level-references	instantiate	declared	--search PreferSmallerInstances --minint -8 --maxint 7 -n 300000	0	1	1	3ba70b50d3712fc94c3a8bb748ca360af74c5fbe447b1f34e19b880aedcbe4ea	
+solve-positive	layout	instantiate	declared	--search PreferSmallerInstances --minint -8 --maxint 7 -n 300000	0	1	1	bd23c96528b3625c468743ab667384d129554412b574e1a43922990eebfba833	
+solve-positive	Linux_model	instantiate	declared	--search PreferSmallerInstances --minint -8 --maxint 7 -n 300000	0	6	6	556c50841a8f95851b7f4b296055ca6e93e3cc88b2b43fab5b57cf4932c272e9	
+solve-positive	multihier	instantiate	declared	--search PreferSmallerInstances --minint -8 --maxint 7 -n 300000	0	1	1	a3c2c6bf389a2e04bbffaf73d749fb6d9f21a096fb50038613a46f8e61f48f91	
+solve-positive	NECSIS-Workshop_Modeling_Variability_7	instantiate	declared	--search PreferSmallerInstances --minint -8 --maxint 7 -n 300000	0	16	16	2637179e1144b26439288ac4343285eceaa606b720448442cf19248696c912d5	
+solve-positive	negative	instantiate	declared	--search PreferSmallerInstances --minint -8 --maxint 7 -n 300000	0	1	1	e217710f01421f434e11286f5fe16bf1683e8d8c67832ae24e3edf0fdd30008c	
+solve-positive	noAndNot	instantiate	declared	--search PreferSmallerInstances --minint -8 --maxint 7 -n 300000	0	1	1	13aa6a9dc496caa35b77624cb88798d7b197e62373ab6585ce485f47b6596066	
+solve-positive	oclBench_b3	instantiate	declared	--search PreferSmallerInstances --minint -8 --maxint 7 -n 300000	0	1	1	0b7a4ffea85fa42342b5c7d7b703574b537274335d4709d45a156ded1760b128	
+solve-positive	optionalClaferInitializer	instantiate	declared	--search PreferSmallerInstances --minint -8 --maxint 7 -n 300000	0	4	4	79f6298b7b240a861a9c9e4a816451019c9aa7612c6369bf3f2170a0ce13b2a7	
+solve-positive	paths	instantiate	declared	--search PreferSmallerInstances --minint -8 --maxint 7 -n 300000	0	3	3	9af9d3eaf36e55b06fffd68d46b67fd31cf18a9406fedbbf91d9c1ae72aa2dec	
+solve-positive	person_tutorial	excluded	declared	-	-	-	-	-	exceeds 300,001 instances at its declared scopes (3.3 s to the cap)
+solve-positive	personRelatives	instantiate	declared	--search PreferSmallerInstances --minint -8 --maxint 7 -n 300000	0	9	9	94b2841829537212401ac5b35a948a50c87de725da2d973b25c4384a34cdf770	
+solve-positive	powerWindow_doubleDoor	excluded	declared	-	-	-	-	-	no termination within 150 s at a 300,001-instance cap
+solve-positive	powerWindow_singleDoor	instantiate	declared	--search PreferSmallerInstances --minint -8 --maxint 1500 -n 300000	0	1318	1318	484b868ad17a236ea6a2d67030c97140756029e84399d32e299ac7d57828a99b	hash-only: canonical text above STORE_LIMIT (4000000 bytes) dropped after hashing
+solve-positive	references-in-bound-identifiers	instantiate	declared	--search PreferSmallerInstances --minint -8 --maxint 7 -n 300000	0	2	2	97cdc1647672d0bdc50d9e73bdeeb0404f050ed0cef69611314f6214483fe371	
+solve-positive	references-refinement	instantiate	declared	--search PreferSmallerInstances --minint -8 --maxint 7 -n 300000	0	2	2	65a67b3d4085f7763218590b3a2aaf812d5be4952b7a3cedbc8d5702881fd5d9	
+solve-positive	resolution	instantiate	declared	--search PreferSmallerInstances --minint -8 --maxint 7 -n 300000	0	7	7	97543101ae7492a51b01e5edfe1b1e3492efac64e2c0a581e184447f079784d4	
+solve-positive	scopes	excluded	declared	-	-	-	-	-	exceeds 300,001 instances at its declared scopes (17.6 s to the cap)
+solve-positive	Scotiabank_Mortgages	instantiate	declared	--search PreferSmallerInstances --minint -8 --maxint 7 -n 300000	0	1	1	ff1e062e63e7f3c72225ac52dbf0724ed11bebf647381e1235b0ac90643a2057	
+solve-positive	simple-arithmetic	instantiate	declared	--search PreferSmallerInstances --minint -8 --maxint 7 -n 300000	0	1	1	43eb38ae13e1a7568da663b9d56524f4b513e45e3be4e061a3adba69fcbfe11c	
+solve-positive	simpleConstraint	instantiate	declared	--search PreferSmallerInstances --minint -8 --maxint 7 -n 300000	0	3	3	5c7da19c7aac22c5ad4b376a5d9347e6459bc9a455bf60974e816ce718cc217e	
+solve-positive	subtyping-primitive-types	instantiate	declared	--search PreferSmallerInstances --minint -8 --maxint 7 -n 300000	0	1	1	b53313a14cd437e59b23a557f8f07d66cdf1301dda1a7350d00be04c672e844c	
+solve-positive	Telematics_PLA	instantiate	declared	--search PreferSmallerInstances --minint -8 --maxint 7 -n 300000	0	1	1	f8b749c2f0bc764c7f34aeb85d5c48385e64f6ede2072ee6762de4f6e8831ea5	
+solve-positive	telematics	instantiate	declared	--search PreferSmallerInstances --minint -8 --maxint 7 -n 300000	0	1	1	d1e9e93bd361ae3b5902114cfc2a9e551729dd805a47aad461302ee829332714	
+solve-positive	test_neg_typesystem	instantiate	declared	--search PreferSmallerInstances --minint -8 --maxint 7 -n 300000	0	15	15	0f20e7cce6c09b3c139b264c6ef81b4f76cacb9deb53dde2b37433b6ba7411f0	
+solve-positive	toeklk	instantiate	declared	--search PreferSmallerInstances --minint 0 --maxint 64 -n 300000	0	15	15	cddb7493253d0f62a6a0a749d673176901f25f7d000bee76b6fda9d7003942c5	
+solve-positive	top_level_constraints_with_relational_joins	instantiate	declared	--search PreferSmallerInstances --minint -8 --maxint 7 -n 300000	0	4	4	be897894abbc6ab917f4f5b4a1a9afc700afedc8bd00903ef709b74c0e61fa88	
+solve-positive	Tutorial_Intro	excluded	declared	-	-	-	-	-	exceeds 300,001 instances at its declared scopes (3.3 s to the cap)

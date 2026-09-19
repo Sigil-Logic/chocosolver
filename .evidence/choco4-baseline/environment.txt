@@ -1,0 +1,16 @@
+date-utc: 2026-09-19T03:37:30Z
+chocosolver: chocosolver v0.4.4.2016-09-19
+jar: target/chocosolver-0.4.4-jar-with-dependencies.jar
+jar-sha256: 60a9a4f4540cf4982ffe03440dafdbf36b1899a6a4401d8a4ab769b4872a6fc9
+chocosolver-commit: bc4cb12a23118d9e5d7f1003d83f2f8bed9cf179
+java: openjdk version "21.0.2" 2024-01-16
+maven: Apache Maven 3.9.16 (2bdd9fddda4b155ebf8000e807eb73fd829a51d5)
+arch: arm64  os: Darwin
+clafer: Clafer 0.5.1  (/tmp/clafer-master/clafer)
+clafer-commit: cefa7aa35f3b32c1811b2283fe715ed32081e7ae
+corpus: src/test/resources (112 models)
+reduced-configurations: /Users/frankzeyda/Repositories/Sigil/clafer/chocosolver/.evidence/choco4-baseline/reduced-configurations.tsv
+reduced-models: /Users/frankzeyda/Repositories/Sigil/clafer/chocosolver/.evidence/choco4-baseline/reduced-models
+exclusions: /Users/frankzeyda/Repositories/Sigil/clafer/chocosolver/.evidence/choco4-baseline/exclusions.tsv
+cap: 300000  timeout: 300s  store-limit: 4000000 bytes
+invocation: java -jar <jar> --file model.js --search PreferSmallerInstances --minint <lo> --maxint <hi> [-n 300000 | -v] --output instances.txt  (timeout 300s per run; unsat: --repl < 'minUnsat, unsatCore, quit')

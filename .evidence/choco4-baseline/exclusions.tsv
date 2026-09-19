@@ -1,0 +1,14 @@
+model	reason
+books_tutorial	exceeds 300,001 instances at its declared scopes (1.5 s to the cap); no set-comparable full enumeration
+constraints	exceeds 300,001 instances at its declared scopes (8.5 s to the cap)
+EDM_Intro	exceeds 300,001 instances at its declared scopes (19.7 s to the cap)
+ClaferTools_CommandLineArguments	exceeds 300,001 instances at its declared scopes (25.7 s to the cap); UNSAT at scope 1
+AADL_simplified	exceeds 300,001 instances at its declared scopes (25.9 s to the cap); scope 1 is insufficient (InsufficientScopeException)
+person_tutorial	exceeds 300,001 instances at its declared scopes (3.3 s to the cap)
+scopes	exceeds 300,001 instances at its declared scopes (17.6 s to the cap)
+Tutorial_Intro	exceeds 300,001 instances at its declared scopes (3.3 s to the cap)
+AADL_cruise_control_impl_expanded	exceeds 300,001 instances at its declared scopes (146 s to the cap)
+enforcingInverseReferences	no termination within 150 s at a 300,001-instance cap
+AADL_with_acc_first_try	no termination within 150 s at a 300,001-instance cap
+i71	no termination within 150 s at a 300,001-instance cap
+powerWindow_doubleDoor	no termination within 150 s at a 300,001-instance cap
