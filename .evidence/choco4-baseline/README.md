@@ -1,10 +1,11 @@
 # Choco-solver 4.0.0 Golden-Oracle Baseline (chocosolver 0.4.4)
 
 **Status**: Frozen snapshot  
-**Version**: 1.0.0  
-**Date**: 2026-09-18  
+**Version**: 1.1.0  
+**Date**: 2026-09-19  
 **Project**: Clafer Toolchain (Sigil Logic)  
 **Issue**: [chocosolver#2](https://github.com/Sigil-Logic/chocosolver/issues/2)  
+**Review**: 2026-09-18/19 HOARDE Codex (Cycles 1–4), HOARDE Gemini and HOARDE Junie (Cycles 1–2), Frank Zeyda (PR [#9](https://github.com/Sigil-Logic/chocosolver/pull/9))  
 
 ---
 
@@ -112,7 +113,7 @@ The same scripts and toolchain also captured three private Clafer corpora — HO
 |---|---|
 | chocosolver source | `bc4cb12a23118d9e5d7f1003d83f2f8bed9cf179` (the 0.4.4 release, byte-identical to upstream `gsdlab/chocosolver` master) |
 | jar under test | `target/chocosolver-0.4.4-jar-with-dependencies.jar` from `mvn -DskipTests package`, SHA-256 `60a9a4f4540cf4982ffe03440dafdbf36b1899a6a4401d8a4ab769b4872a6fc9`; class content identical outside `META-INF` to the jar built on 2026-09-10 for the clafer harness |
-| harness | the four scripts under `scripts/` at the commit recorded as `chocosolver-commit` in `environment.txt` (the solver sources there are unchanged from `bc4cb12a`); their SHA-256 are the `harness-sha256` lines, so the evidence is tied to the exact producing bytes |
+| harness | the four scripts under `scripts/`, tied to the exact producing bytes by the `harness-sha256` lines in `environment.txt`.  `chocosolver-commit` there records the branch commit at capture time (`b9ddb831`), which the squash merge of PR [#9](https://github.com/Sigil-Logic/chocosolver/pull/9) folded into `f66654fb`; the `scripts/` tree of the two commits is identical (the solver sources are unchanged from `bc4cb12a`), so the recorded hashes match the scripts on `master` |
 | `choco-solver:4.0.0` | Maven Central artifact, SHA-1 `aec0dc6a0e6a19c13efbe9d90a73bdaaf0508f2a` (SHA-256 `c7c3e8ace465f04e3ddd8e4383cd4c664251b77215b5dc04fe528872a822c5bb`) |
 | JDK / Maven | OpenJDK 21.0.2 / Apache Maven 3.9.16 |
 | Platform | aarch64 macOS (Darwin 25.6).  chocosolver is pure JVM; the first GitHub Actions capture of the build-modernization stage will confirm x86_64 Linux parity against this reference |
