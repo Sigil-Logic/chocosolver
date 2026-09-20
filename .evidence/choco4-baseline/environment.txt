@@ -1,0 +1,23 @@
+date-utc: 2026-09-19T22:24:19Z
+chocosolver: chocosolver v0.4.4.2016-09-19
+jar: target/chocosolver-0.4.4-jar-with-dependencies.jar
+jar-sha256: 60a9a4f4540cf4982ffe03440dafdbf36b1899a6a4401d8a4ab769b4872a6fc9
+chocosolver-commit: b9ddb831c38d1a03af400e2b24c29538aeb3179d
+chocosolver-tree: clean
+harness-sha256: b9a4a8a94d2038500fab0c50467d08ac40e6c556ba6d8f2da84b85ce56495afe  scripts/capture-choco4-baseline.sh
+harness-sha256: 694767ae7d31aa01200cca569d92571b52724c003c01318cfd48732f6da05670  scripts/canonicalize-choco-instances.py
+harness-sha256: 272c0261f53f6e7fcc08908add827a001b32f5f39a6a15e10064a6a0fce652e1  scripts/compare-choco-baselines.py
+harness-sha256: e968a6a4782f7e404b4160833052036ca691e5cdc1da1a28adbc041ef5a31e52  scripts/publish-choco4-baseline.py
+java: openjdk version "21.0.2" 2024-01-16
+maven: Apache Maven 3.9.16 (2bdd9fddda4b155ebf8000e807eb73fd829a51d5)
+arch: arm64  os: Darwin
+clafer: Clafer 0.5.1  (/tmp/clafer-master/clafer)
+clafer-commit: cefa7aa35f3b32c1811b2283fe715ed32081e7ae
+clafer-tree: clean
+clafer-binary-sha256: e31b6077453efba38a7cd32dafec1d44fea67b3841b3016f13b87bd7bd7a3737
+corpus: src/test/resources (112 models)
+reduced-configurations: .evidence/choco4-baseline/reduced-configurations.tsv
+reduced-models: .evidence/choco4-baseline/reduced-models
+exclusions: .evidence/choco4-baseline/exclusions.tsv
+cap: 300000  timeout: 300s  store-limit: 4000000 bytes
+invocation: java -jar <jar> --file model.js --search PreferSmallerInstances --minint <lo> --maxint <hi> [-n 300000 | -v] --output instances.txt  (timeout 300s per run; unsat: --repl < 'minUnsat, unsatCore, quit')
